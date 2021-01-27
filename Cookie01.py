@@ -1,5 +1,6 @@
 from http.cookiejar import CookieJar
 from urllib.request import build_opener,HTTPCookieProcessor
+from datetime import datetime
 
 if __name__ == '__main__':
     cookie_jar = CookieJar()
@@ -7,5 +8,9 @@ if __name__ == '__main__':
     opener.open('http://github.com')
     cookies = list(cookie_jar)
 
-    for i in cookies:
-        print(i)
+    print(cookies[0].name)
+    print(cookies[0].value)
+    print(cookies[0].domain)
+    print(cookies[0].path)
+    print(cookies[0].expires)
+    print(datetime.fromtimestamp(cookies[0].expires))
