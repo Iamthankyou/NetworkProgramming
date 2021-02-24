@@ -1,11 +1,14 @@
 import netifaces
 import socket
+import dns.reversename
 
 if __name__ == '__main__':
     hostname = socket.gethostname()
     ip_addr  = socket.gethostbyname(hostname)
     print('hostname: ',hostname)
     print('IP Address: ', ip_addr)
+    dns = dns.reversename.from_address('125.212.247.5')
+    print('Domand name: {}'.format(dns))
 
     # Lay cac giao dien mang
     gd = netifaces.interfaces()
