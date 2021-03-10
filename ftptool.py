@@ -26,6 +26,9 @@ if __name__ == '__main__':
         print('Apter upload')
         print(f.retrlines('LIST'))
 
+
+        # Delete the file
+        # f.delete("index.html")
     except FTP.all_errors as e:
         print('Error {}'.format(e))
 

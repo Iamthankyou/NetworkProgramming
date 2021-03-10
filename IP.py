@@ -1,10 +1,10 @@
 import netifaces
-import socket
+import socketServer
 import dns.reversename
 
 if __name__ == '__main__':
-    hostname = socket.gethostname()
-    ip_addr  = socket.gethostbyname(hostname)
+    hostname = socketServer.gethostname()
+    ip_addr  = socketServer.gethostbyname(hostname)
     print('hostname: ',hostname)
     print('IP Address: ', ip_addr)
     dns = dns.reversename.from_address('125.212.247.5')

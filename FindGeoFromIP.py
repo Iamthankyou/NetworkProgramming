@@ -1,10 +1,10 @@
 from geoip2 import *
-import socket
+import socketServer
 
 if __name__ == '__main__':
     hostname = 'www.baomoi.com'
     print('hostname: ', hostname)
-    ip_addr = socket.gethostbyname(hostname)
+    ip_addr = socketServer.gethostbyname(hostname)
     print('ip:{}'.format(ip_addr))
 
     # Lookup find infor on ip:
