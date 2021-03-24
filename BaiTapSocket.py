@@ -8,6 +8,7 @@ import sys
 if __name__ == "__main__":
     # while True:
     sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
     try:
         # sk.connect(('www.linux.org',80))
         sk.connect(('127.0.0.1', 9050))
