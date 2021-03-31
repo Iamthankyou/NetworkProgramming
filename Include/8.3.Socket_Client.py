@@ -24,20 +24,13 @@ if __name__ == '__main__':
         data = input('Nhap vao ten file: ')
         sk.send(data.encode('utf-8'))
         while True:
-            data = sk.recv(4096)
-            if data == 'het file':
+            data = sk.recv(40960)
+            if data == '\nhet file':
                 data = input('Nhap vao ten file: ')
                 sk.send(data.encode('utf-8'))
             if not data:
                 break
             else:
-                try :
-                    f = open("D:/Python/Code/LapTrinhMang/Nhan/results.txt",'a')
-                except FileNotFoundError:
-                    print("Khong tim thay file in ")
-                    sys.exit()
-                f.write(data.decode('utf-8'))
                 print("server gui: ")
                 print(data.decode('utf-8'))
-                f.close()
     sk.close()

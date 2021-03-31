@@ -12,22 +12,16 @@ if __name__ == '__main__':
     while True:
         client_sk, client_addr = sk.accept()
         while True:
-            data = client_sk.recv(4096)
+            data = client_sk.recv(40960)
             filename = data.decode('utf-8')
             if data.decode('utf-8') == 'tam biet':
                 client_sk.close()
 
             else:
                 try:
-                    f = open('D:/Python/Code/LapTrinhMang/Include/Test/'+ filename +'.txt', 'r')
-
-                    for l in f:
-                        print(l)
-                        data = l
-                        client_sk.send(data.encode('utf-8'))
+                    f = open(filename, 'r')
+                    client_sk.send(f.read().encode('utf8'))
                     f.close()
-                    data = '\nhetfile'
-                    client_sk.send(data.encode('utf-8'))
 
                 except FileNotFoundError as e:
                     print("Khong tim thay file{}".format(e))

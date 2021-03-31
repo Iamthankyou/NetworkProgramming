@@ -15,12 +15,12 @@ def main():
             if not data:
                 break
 
-            s.sendall(data.encode('utf8'))
+            s.sendall(data.encode('utf-8'))
 
             dataRev = s.recv(1024)
 
             if dataRev:
-                print('Server call reback ',dataRev)
+                print('Server call reback ',dataRev.decode('utf-8'))
 
 if __name__ == '__main__':
     main()

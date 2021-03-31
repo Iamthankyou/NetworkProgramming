@@ -1,5 +1,7 @@
 import socket
 import argparse
+import sys
+
 ClientSocket = socket.socket()
 host = 'localhost'
 
@@ -18,7 +20,11 @@ except socket.error as e:
 Response = ClientSocket.recv(1024)
 while True:
     Input = input('Say Something: ')
+    tmp = Input
+    Input = str(len(Input)) + " " +Input
     ClientSocket.send(Input.encode('utf-8'))
+    if tmp == "quit":
+        sys.exit()
     Response = ClientSocket.recv(1024)
     print(Response.decode('utf-8'))
 
