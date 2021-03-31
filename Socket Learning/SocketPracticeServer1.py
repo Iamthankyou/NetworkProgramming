@@ -58,6 +58,7 @@ def thread_client(conn):
         if not data:
             break
         conn.sendall(rep.encode('utf-8'))
+    print("Close socket to client")
     conn.close()
 
 if __name__ == '__main__':
