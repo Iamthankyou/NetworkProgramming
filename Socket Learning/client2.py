@@ -11,7 +11,7 @@ def main():
     with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
         s.connect((HOST,PORT))
         while True:
-            data = input()
+            data = input("Type something")
             if not data:
                 break
 

@@ -52,10 +52,10 @@ class ClientThread(Thread):
     def sendMessageJoinRoom(self, name):
         self.conn.send(bytes('welcome to room!', 'utf-8'))
         for client in self.client:
-            if client.is_alive() and client.conn != self.conn:
-                client.conn.send(bytes(name + ' has join room', 'utf-8'))
+            # if client.is_alive() and client.conn != self.conn:
+            client.conn.send(bytes(name + ' has join room', 'utf-8'))
 
     def sendMessage(self, message):
         for client in self.client:
-            if client.is_alive() and client.conn != self.conn:
-                client.conn.send(bytes(message, 'utf-8'))
+            # if client.is_alive() and client.conn != self.conn:
+            client.conn.send(bytes(message, 'utf-8'))
