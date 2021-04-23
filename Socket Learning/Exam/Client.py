@@ -15,9 +15,9 @@ if __name__ == '__main__':
         sk.sendto("Hello server".encode('utf-8'), (HOST,PORT))
         mess,client_addr = sk.recvfrom(1024)
         print(mess.decode('utf-8'))
+        flag = True
 
         while True:
-            sk.sendto("Hello server".encode('utf-8'), (HOST, PORT))
             list_sockets = [sys.stdin, sk]
             r,w,e = select.select(list_sockets,[],[])
 
@@ -26,6 +26,18 @@ if __name__ == '__main__':
                     mess, client_addr = sk.recvfrom(1024)
                     print(mess.decode('utf-8'))
                 else:
-                    mess = input('Type list number: ')
-                    if mess:
-                        sk.sendto(mess.encode('utf-8'), (HOST, PORT))
+                    if flag == False:
+                        mess = input('Type list number: ')
+                        if mess:
+                            sk.sendto(mess.encode('utf-8'), (HOST, PORT))
+                    else:
+                        flag = False
+
+                        sk.sendto("Hello server".encode('utf-8'), (HOST, PORT))
+                        mess = input('Type list number: ')
+                        if mess:
+                            sk.sendto(mess.encode('utf-8'), (HOST, PORT))
+
+
+
+
