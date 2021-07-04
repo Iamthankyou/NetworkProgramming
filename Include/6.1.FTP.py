@@ -1,6 +1,7 @@
 import ftplib
 import os
 from ftplib import FTP
+
 if __name__ == '__main__':
     f = FTP('ftp.ibiblio.org')
     print("Thong bao tu server: %s "%f.getwelcome())

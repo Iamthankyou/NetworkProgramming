@@ -1,6 +1,5 @@
 import socket
 
-# Работа с пользователем
 from os import getlogin
 
 # Работа с изображение
@@ -20,7 +19,7 @@ from PyQt5.QtCore import QRect, Qt
 
 print("[SERVER]: STARTED")
 sock = socket.socket()
-sock.bind(('localhost', 9091)) # Your Server
+sock.bind(('172.20.10.5', 9091)) # Your Server
 sock.listen()
 conn, addr = sock.accept()
 
@@ -39,7 +38,6 @@ class Dekstop(QMainWindow):
                 self.label.resize(self.width(), self.height())
                 self.label.setPixmap(self.pixmap)
         except ConnectionResetError:
-            QMessageBox.about(self, "ERROR", "[SERVER]: The remote host forcibly terminated the existing connection!")
             conn.close()
 
     def initUI(self):
@@ -48,7 +46,7 @@ class Dekstop(QMainWindow):
         self.label.resize(self.width(), self.height())
         self.setGeometry(QRect(pyautogui.size()[0] // 4, pyautogui.size()[1] // 4, 800, 450))
         self.setFixedSize(self.width(), self.height())
-        self.setWindowTitle("[SERVER] Remote Desktop: " + str(randint(99999, 999999)))
+        self.setWindowTitle("[SERVER]: ")
         self.start = Thread(target=self.ChangeImage, daemon=True)
         self.start.start()
 

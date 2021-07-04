@@ -13,22 +13,21 @@ if __name__ == '__main__':
     # Lay header
     #req = Request("http://www.python.org")
     #r = urlopen(req)
-    #print(r.getheader('User-Agent'))
+        #print(r.getheader('User-Agent'))
 
-
-    #Lay cookie
+    # Lay cookie
     # Noi chua cookie
-    cookie_jar = CookieJar();
+    cookie_jar = CookieJar()
     # Su dung builder de lay cookie trong header
     opener = build_opener(HTTPCookieProcessor(cookie_jar))
 
-    #Tao http request
+    # Tao http request
     res = opener.open("http://www.youtube.com")
-    #print(res)
-    #print(cookie_jar)
+    # print(res)
+    # print(cookie_jar)
 
     ck = list(cookie_jar)
-    #print(ck)
+    # print(ck)
     print(ck[0].name)
     print(ck[0].value)
     print(ck[0].domain)

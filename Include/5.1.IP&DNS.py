@@ -25,7 +25,7 @@ if __name__ == '__main__':
             print("network interface: {}".format(i))
             print("IP address: {}".format(ip_['addr']))
             print("Network mask {}".format(ip_['netmask']))
-
     #gateway
     gw = netifaces.gateways()
     print("default gateway: {}".format(gw['default'][netifaces.AF_INET][0]))
+

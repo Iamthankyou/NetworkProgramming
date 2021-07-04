@@ -43,7 +43,7 @@ class Dekstop(QMainWindow):
         self.label.resize(self.width(), self.height())
         self.setGeometry(QRect(pyautogui.size()[0] // 4, pyautogui.size()[1] // 4, 400, 90))
         self.setFixedSize(self.width(), self.height())
-        self.setWindowTitle("[CLIENT] Remote Desktop: " + str(randint(99999, 999999)))
+        self.setWindowTitle("TEAMVIEW: ")
         self.start = Thread(target=self.ChangeImage, daemon=True)
         self.btn = QPushButton(self)
         self.btn.move(5, 55)
